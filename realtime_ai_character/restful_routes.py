@@ -73,8 +73,8 @@ async def status():
 async def characters(user=Depends(get_current_user)):
     def get_image_url(character):
         gcs_path = 'https://storage.googleapis.com/assistly'
-        if character.character_id == "dali": 
-            return f'https://daliexperiments.com/dali.jpg'
+        if character.character_id == "a34f08818d8c474a9cb0f0ea6da4c1ce": 
+            return f'{gcs_path}/user_upload/jI2U3ukVxegmblESZx8IqhQNsn63/20231026-130519-b81cf9bf-4774-47b4-8806-530b82fd206b.jpg'
         if character.data and 'avatar_filename' in character.data:
             return f'{gcs_path}/{character.data["avatar_filename"]}'
         else:
@@ -84,7 +84,7 @@ async def characters(user=Depends(get_current_user)):
     from realtime_ai_character.character_catalog.catalog_manager import CatalogManager
     catalog: CatalogManager = CatalogManager.get_instance()
     chars=[{
-        "character_id": "dali" if character.character_id == "steve_jobs" else character.character_id,
+        "character_id": character.character_id,
         "name": character.name,
         "source": character.source,
         "voice_id": character.voice_id,
@@ -95,7 +95,7 @@ async def characters(user=Depends(get_current_user)):
         'is_author': character.author_id == uid,
     } for character in catalog.characters.values()
             if character.author_id == uid or character.visibility == 'public']
-    filtered_chars = [char for char in chars if char["character_id"] == "dali"]
+    filtered_chars = [char for char in chars if char["character_id"] == "a34f08818d8c474a9cb0f0ea6da4c1ce"]
 
     return filtered_chars
 
