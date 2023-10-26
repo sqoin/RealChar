@@ -11,7 +11,7 @@ const firebaseConfig = {
   storageBucket: 'daliexperiments.appspot.com',
   messagingSenderId: '655391053560',
   appId: '1:655391053560:web:4b1a6fc7bda54b0478cd0d',
-  measurementId: 'G-6NKVT8NQ0E'
+  measurementId: 'G-6NKVT8NQ0E',
 };
 
 // Initialize Firebase
