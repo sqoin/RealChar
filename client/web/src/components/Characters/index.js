@@ -61,7 +61,7 @@ const Characters = ({
           ((!characterConfirmed && character.source === 'default') ||
             (selectedCharacter &&
               character.character_id === selectedCharacter.character_id)) && (
-            <Grid item xs={isMobile ? 12 : 6} key={index}>
+            <Grid className='daliChar' item xs={isMobile ? 12 : 6} key={index}>
               <Button
                 variant='outlined'
                 onClick={() => handleCharacterSelection(character)}
@@ -105,7 +105,7 @@ const Characters = ({
           )
       )}
 
-      <Grid item xs={isMobile ? 12 : 6}>
+      {/* <Grid item xs={isMobile ? 12 : 6}>
         <Button
           variant='outlined'
           onClick={handleOpenDialog}
@@ -169,7 +169,7 @@ const Characters = ({
             Select from your library
           </Typography>
         </Button>
-      </Grid>
+      </Grid> */}
 
       <Dialog
         open={openDialog}

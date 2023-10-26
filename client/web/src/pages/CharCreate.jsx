@@ -185,32 +185,7 @@ const CharCreate = ({ token }) => {
     if (!new_formData.data) {
       new_formData.data = {};
     }
-    // upload image to gcs
-    if (image) {
-      try {
-        let res = await uploadfile(selectedFile, token);
-        new_formData.data.avatar_filename = res.filename;
-      } catch (error) {
-        console.error(error);
-        alert('Error uploading image');
-      }
-    }
-
-    // upload files to gcs
-    if (files.length > 0) {
-      for (let i = 0; i < files.length; i++) {
-        try {
-          let res = await uploadfile(files[i], token);
-          new_formData.data[files[i].name] = res.filename;
-        } catch (error) {
-          console.error(error);
-          alert('Error uploading files');
-        }
-      }
-    }
-
     // call api to create character
-    console.log(new_formData);
     try {
       await createCharacter(new_formData, token);
       navigate('/');

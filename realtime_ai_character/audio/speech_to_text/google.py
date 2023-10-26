@@ -6,7 +6,6 @@ from realtime_ai_character.logger import get_logger
 from realtime_ai_character.utils import Singleton, timed
 
 logger = get_logger(__name__)
-
 config = types.SimpleNamespace(**{
     'web': {
         'encoding': speech.RecognitionConfig.AudioEncoding.WEBM_OPUS,

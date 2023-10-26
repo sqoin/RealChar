@@ -50,15 +50,17 @@ async def get_current_user(request: Request):
         try:
             # Verify the token against the Firebase Auth API.
             decoded_token = auth.verify_id_token(token)
+            print("ok1*****",decoded_token)
         except FirebaseError:
             raise HTTPException(
                 status_code=http_status.HTTP_401_UNAUTHORIZED,
                 detail='Invalid authentication credentials',
                 headers={'WWW-Authenticate': 'Bearer'},
             )
-
+        print("ok2*****",decoded_token)
         return decoded_token
     else:
+        print("not ok*****",request.url)
         return ""
 
 
@@ -71,15 +73,18 @@ async def status():
 async def characters(user=Depends(get_current_user)):
     def get_image_url(character):
         gcs_path = 'https://storage.googleapis.com/assistly'
+        if character.character_id == "dali": 
+            return f'https://daliexperiments.com/dali.jpg'
         if character.data and 'avatar_filename' in character.data:
             return f'{gcs_path}/{character.data["avatar_filename"]}'
         else:
             return f'{gcs_path}/static/realchar/{character.character_id}.jpg'
+    print("****current_user****",user)
     uid = user['uid'] if user else None
     from realtime_ai_character.character_catalog.catalog_manager import CatalogManager
     catalog: CatalogManager = CatalogManager.get_instance()
-    return [{
-        "character_id": character.character_id,
+    chars=[{
+        "character_id": "dali" if character.character_id == "steve_jobs" else character.character_id,
         "name": character.name,
         "source": character.source,
         "voice_id": character.voice_id,
@@ -90,6 +95,9 @@ async def characters(user=Depends(get_current_user)):
         'is_author': character.author_id == uid,
     } for character in catalog.characters.values()
             if character.author_id == uid or character.visibility == 'public']
+    filtered_chars = [char for char in chars if char["character_id"] == "dali"]
+
+    return filtered_chars
 
 
 @router.get("/configs")
@@ -125,12 +133,13 @@ async def post_feedback(feedback_request: FeedbackRequest,
 
 @router.post("/uploadfile")
 async def upload_file(file: UploadFile = File(...), user = Depends(get_current_user)):
-    if not user:
-        raise HTTPException(
-                status_code=http_status.HTTP_401_UNAUTHORIZED,
-                detail='Invalid authentication credentials',
-                headers={'WWW-Authenticate': 'Bearer'},
-            )
+    # if not user:
+    #     raise HTTPException(
+    #             status_code=http_status.HTTP_401_UNAUTHORIZED,
+    #             detail='Invalid authentication credentials',
+    #             headers={'WWW-Authenticate': 'Bearer'},
+    #         )
+    print("****uploadfile****",user)
 
     storage_client = storage.Client()
     bucket_name = os.environ.get('GCP_STORAGE_BUCKET_NAME')
@@ -165,12 +174,12 @@ async def upload_file(file: UploadFile = File(...), user = Depends(get_current_u
 async def create_character(character_request: CharacterRequest,
                            user = Depends(get_current_user),
                            db: Session = Depends(get_db)):
-    if not user:
-        raise HTTPException(
-                status_code=http_status.HTTP_401_UNAUTHORIZED,
-                detail='Invalid authentication credentials',
-                headers={'WWW-Authenticate': 'Bearer'},
-            )
+    # if not user:
+    #     raise HTTPException(
+    #             status_code=http_status.HTTP_401_UNAUTHORIZED,
+    #             detail='Invalid authentication credentials',
+    #             headers={'WWW-Authenticate': 'Bearer'},
+    #         )
     character = Character(**character_request.dict())
     character.id = str(uuid.uuid4().hex)
     character.author_id = user['uid']
@@ -439,17 +448,18 @@ async def system_prompt(request: GeneratePromptRequest, user = Depends(get_curre
     """Generate System Prompt according to name and background."""
     name = request.name
     background = request.background
-    if not isinstance(name, str) or name == '':
-        raise HTTPException(
-                status_code=http_status.HTTP_400_BAD_REQUEST,
-                detail='Name is empty',
-            )
-    if not user:
-        raise HTTPException(
-                status_code=http_status.HTTP_401_UNAUTHORIZED,
-                detail='Invalid authentication credentials',
-                headers={'WWW-Authenticate': 'Bearer'},
-            )
+    # if not isinstance(name, str) or name == '':
+    #     raise HTTPException(
+    #             status_code=http_status.HTTP_400_BAD_REQUEST,
+    #             detail='Name is empty',
+    #         )
+    print("*******hhhh*ooo*/////",user,name, background)
+    # if not user:
+    #     raise HTTPException(
+    #             status_code=http_status.HTTP_401_UNAUTHORIZED,
+    #             detail='Invalid authentication credentials',
+    #             headers={'WWW-Authenticate': 'Bearer'},
+    #         )
     return {
         'system_prompt': await generate_system_prompt(name, background)
     }
