@@ -14,7 +14,7 @@ import { Navbar } from '@nextui-org/react';
 
 const Header = ({ user, isLoggedIn, setToken, handleDisconnect }) => (
   <Navbar id='navbar' variant='floating'>
-    <a href='/'>
+    <a href='/' className='link-logo'>
       <Navbar.Brand
         css={{
           '@xs': {
@@ -22,7 +22,7 @@ const Header = ({ user, isLoggedIn, setToken, handleDisconnect }) => (
           },
         }}
       >
-        <img src={logo} alt='Logo' />
+        <img src={logo} alt='Logo' className='header-logo' />
       </Navbar.Brand>
     </a>
 

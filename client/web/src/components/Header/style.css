@@ -20,3 +20,10 @@ header {
 #navbar {
   background: none;
 }
+.header-logo{
+  width: 474px !important;
+  height: 60px !important;
+}
+.link-logo{
+  width: 0px !important;
+}

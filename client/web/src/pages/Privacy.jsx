@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * src/pages/Privacy.jsx
  *
@@ -9,14 +10,14 @@ import React from 'react';
 const Privacy = () => {
   return (
     <div className='home'>
-      <h1>Privacy Notice for RealChar</h1>
+      <h1>Privacy Notice for MIA</h1>
       <p>
         <strong>Effective Date:</strong> 08/18/2023
       </p>
 
       <h2>Introduction</h2>
       <p>
-        Thank you for using RealChar. We respect your privacy and want to
+        Thank you for using MIA. We respect your privacy and want to
         protect your personal data. This privacy notice will inform you as to
         how we look after your personal data when you visit our website
         (regardless of where you visit it from) and tell you about your privacy
@@ -78,11 +79,6 @@ const Privacy = () => {
         processing.
       </p>
 
-      <h2>Contact Us</h2>
-      <p>
-        For any questions about this privacy notice or our privacy practices,
-        please contact us at privacy@realchar.ai.
-      </p>
     </div>
   );
 };

@@ -21,5 +21,13 @@
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "no-unused-vars": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": [".prettierrc", ".prettierrc.js"],
+      "rules": {
+        "prettier/prettier": "off"
+      }
+    }
+  ]
 }
