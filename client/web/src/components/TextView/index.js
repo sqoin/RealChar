@@ -47,7 +47,7 @@ const TextView = ({
   const [keyboard, SetKeyboard] = useState(true);
   const chatWindowRef = useRef(null);
   const talking = useRef(false);
-
+  
   // always show the latest chat log
   useEffect(() => {
     if (chatWindowRef.current) {
