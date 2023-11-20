@@ -2,26 +2,26 @@
 const TermsOfService = () => {
   return (
     <div className='home'>
-      <h1>Terms of Service for MIA</h1>
+      <h1>Terms of Service for MeditationMates</h1>
       <p>
         <strong>Effective Date:</strong> 08/18/2023
       </p>
 
       <h2>Introduction</h2>
       <p>
-        Welcome to MIA. These terms and conditions outline the rules and
-        regulations for the use of MIA&apos;s website and services. By
+        Welcome to MeditationMates. These terms and conditions outline the rules and
+        regulations for the use of MeditationMates&apos;s website and services. By
         accessing this website and using our services, we assume you accept
         these terms and conditions in full. Do not continue to use
-        MIA&apos;s website and services if you do not accept all of the
+        MeditationMates&apos;s website and services if you do not accept all of the
         terms and conditions stated on this page.
       </p>
 
       <h2>License</h2>
       <p>
-        Unless otherwise stated, MIA owns the intellectual property rights
-        for all material on MIA. All intellectual property rights are
-        reserved. You may access this from MIA for your own personal use
+        Unless otherwise stated, MeditationMates owns the intellectual property rights
+        for all material on MeditationMates. All intellectual property rights are
+        reserved. You may access this from MeditationMates for your own personal use
         subjected to restrictions set in these terms and conditions.
       </p>
 
@@ -42,13 +42,13 @@ const TermsOfService = () => {
         <li>Use of the website and services is at your own risk.</li>
         <li>
           You agree not to access the service by any means other than through
-          the interfaces provided by MIA.
+          the interfaces provided by MeditationMates.
         </li>
       </ul>
 
       <h2>Indemnification</h2>
       <p>
-        You agree to indemnify, defend and hold harmless MIA, its officers,
+        You agree to indemnify, defend and hold harmless MeditationMates, its officers,
         directors, employees, agents and third parties, for any losses, costs,
         liabilities and expenses (including reasonable attorneys&apos; fees)
         relating to or arising out of your use of or inability to use the site
@@ -59,7 +59,7 @@ const TermsOfService = () => {
 
       <h2>Termination</h2>
       <p>
-      MIA reserves the right to terminate your access to the site and the
+      MMeditationMatesIA reserves the right to terminate your access to the site and the
         services, without any advance notice.
       </p>
 

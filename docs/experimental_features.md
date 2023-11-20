@@ -1,7 +1,7 @@
 # Experimental Features
 
 ## Multi-On
-We have integrated [Multi-On](https://www.multion.ai/), a popular AI Agent framework into MIA. During your conversation with MIA characters, if you start your input with "multion" or "multi-on" (in any capitalized form), we will relay your request to Multi-On, which can help you complete the task.
+We have integrated [Multi-On](https://www.multion.ai/), a popular AI Agent framework into MeditationMates. During your conversation with MeditationMates characters, if you start your input with "multion" or "multi-on" (in any capitalized form), we will relay your request to Multi-On, which can help you complete the task.
 
 To enable this feature, please set this environment variable in your command-line or in the .env file:
 ```
@@ -17,7 +17,7 @@ Or using the CLI:
 python cli.py run-uvicorn --port 8001
 ```
 
-This is to avoid conflict with MultiOn local server, which is hardcoded to run on 8000, the default port of MIA backend service. When MultiOn supports customizing the port in the future, this will not be necessary.
+This is to avoid conflict with MultiOn local server, which is hardcoded to run on 8000, the default port of MeditationMates backend service. When MultiOn supports customizing the port in the future, this will not be necessary.
 
 You can then toggle the "Enable MultiOn Agent" option in the Advanced Options before starting the conversation.
 

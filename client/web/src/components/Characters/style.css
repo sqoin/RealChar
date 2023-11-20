@@ -1,7 +1,7 @@
 .main-container {
   flex-direction: row;
 }
-.daliChar{
+.RezChar{
   display: block !important;
   margin: 0 auto !important;
   margin-bottom: 40px !important;;

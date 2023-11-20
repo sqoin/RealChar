@@ -16,7 +16,7 @@ import { getHostName } from '../../utils/urlUtils';
 Modal.setAppElement('#root');
 
 function Feedback({ messageId, token }) {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [moRezsOpen, setMoRezsOpen] = useState(false);
   const [feedback, setFeedback] = useState('');
   const [comment, setComment] = useState('');
 
@@ -52,7 +52,7 @@ function Feedback({ messageId, token }) {
       });
 
     // Close the modal
-    setModalIsOpen(false);
+    setMoRezsOpen(false);
   };
 
   return (
@@ -65,7 +65,7 @@ function Feedback({ messageId, token }) {
           'stroke-width': '20px',
         }}
         onClick={() => {
-          setModalIsOpen(true);
+          setMoRezsOpen(true);
           setFeedback('good');
         }}
       />
@@ -77,13 +77,13 @@ function Feedback({ messageId, token }) {
           'stroke-width': '20px',
         }}
         onClick={() => {
-          setModalIsOpen(true);
+          setMoRezsOpen(true);
           setFeedback('bad');
         }}
       />
       <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={() => setModalIsOpen(false)}
+        isOpen={moRezsOpen}
+        onRequestClose={() => setMoRezsOpen(false)}
         className='react-modal-content'
         overlayClassName='react-modal-overlay'
       >
@@ -95,7 +95,7 @@ function Feedback({ messageId, token }) {
         />
         <div className='button-row'>
           <Button onClick={handleSubmit} name='Submit' />
-          <Button onClick={() => setModalIsOpen(false)} name='Cancel' />
+          <Button onClick={() => setMoRezsOpen(false)} name='Cancel' />
         </div>
       </Modal>
     </div>

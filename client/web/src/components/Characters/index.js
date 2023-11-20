@@ -61,7 +61,7 @@ const Characters = ({
           ((!characterConfirmed && character.source === 'default') ||
             (selectedCharacter &&
               character.character_id === selectedCharacter.character_id)) && (
-            <Grid className='daliChar' item xs={isMobile ? 12 : 6} key={index}>
+            <Grid className='RezChar' item xs={isMobile ? 12 : 6} key={index}>
               <Button
                 variant='outlined'
                 onClick={() => handleCharacterSelection(character)}
@@ -187,7 +187,7 @@ const Characters = ({
       >
         <DialogTitle id='dialog-title'>
           {' '}
-          Select partner from MIA community{' '}
+          Select partner from MeditationMates community{' '}
         </DialogTitle>
         <DialogContent>
           <Grid container spacing={2}>

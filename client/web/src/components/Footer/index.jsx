@@ -38,7 +38,7 @@ const Footer = () => (
         <FaTwitter />
       </a> */}
     </div>
-    <p className='copyright'>Copyright © 2023 MIA. All rights reserved.</p>
+    <p className='copyright'>Copyright © 2023 MeditationMates. All rights reserved.</p>
   </footer>
 );
 

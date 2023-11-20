@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="flex justify-center py-4">
       </div>
       <p className='copyright text-xs text-center my-7'>
-        Copyright © 2023 MIA. All rights reserved. Any AI character&apos;s
+        Copyright © 2023 MeditationMates. All rights reserved. Any AI character&apos;s
         statements are fictional and don&apos;t represent actual beliefs or
         opinions.
       </p>

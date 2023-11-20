@@ -9,7 +9,7 @@ const prompt = Prompt({
 });
 
 export const metadata = {
-  title: 'MIA',
+  title: 'MeditationMates',
   description:
     'Create, customize and talk to your AI Character/Companion in realtime',
 };
