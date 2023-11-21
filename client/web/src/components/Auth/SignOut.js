@@ -82,12 +82,12 @@ const SignOut = ({ isLoggedIn, user, handleDisconnect }) => {
             <br />
             {user.email}
           </Dropdown.Item>
-          <Dropdown.Item key='create' className='dropdown-item' withDivider>
+          {/* <Dropdown.Item key='create' className='dropdown-item' withDivider>
             Create a character
           </Dropdown.Item>
           <Dropdown.Item key='delete' className='dropdown-item' withDivider>
             Delete a character
-          </Dropdown.Item>
+          </Dropdown.Item> */}
           <Dropdown.Item
             key='logout'
             className='dropdown-logout'
