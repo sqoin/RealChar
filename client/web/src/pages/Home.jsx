@@ -84,7 +84,7 @@ const Home = ({
         <h2>Loading...</h2>
       ) : (
         <>
-          <p className='header'>Choose Your Partner</p>
+          <p className='header'>Choose Your Meditation Coach</p>
 
           <Characters
             isMobile={isMobile}
