@@ -332,6 +332,7 @@ const App = () => {
                 token={token}
                 setToken={setToken}
                 isLoggedIn={isLoggedIn}
+                shouldPlayAudio={shouldPlayAudio}
               />
             }
           />

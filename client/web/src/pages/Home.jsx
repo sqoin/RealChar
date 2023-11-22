@@ -26,6 +26,7 @@ const Home = ({
   token,
   setToken,
   isLoggedIn,
+  shouldPlayAudio,
 }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
@@ -58,12 +59,19 @@ const Home = ({
       });
   }, [setCharacterGroups, token]);
 
-  const handleNextClick = () => {
-    setCharacterConfirmed(true);
+  const handleNextClick = async () => {
     const compressedCharacter = lz.compressToEncodedURIComponent(
       JSON.stringify(selectedCharacter)
     );
-    navigate('/settings?character=' + compressedCharacter);
+    const interval = setInterval(() => {
+      shouldPlayAudio.current = true;
+      clearInterval(interval);
+
+      // TODO(UI): Hide loading animation
+    }, 500);
+    navigate(
+      '/conversation?isCallViewParam=false&character=N4IgxgFghgTlYBcCmMD6BLAJiAXCAjAKwDsALAEzmH7kCclpYARqU5gBwAMTT TAZknpR xJCAA0IAHZQAtuLwAlJAC9JIAM4B7AK4wwikJiT8ougDYINAN23pDGbHgCiMABoB3bUygBNdAA5TnxaAAUAawBPAGUbACsANQ1zBAhtNFkFXBANdDkoAHMkVH0LHIgEBAAHTRwAenrNBAyipAA6Qu1tQoskKGr0TXawbTl6qE1NIYQLKPrdTRRS6ottKEx6 IBJcgBVAGZdCMSADyRCuSYLFxiALVP2bYBHCABFQM1pADYD vJOOQDvgaJwALREUjEfDgwicMBgYhMJFgoHkTBg0jcYhg2j4di0TEsdj8KFgTiEJCcdrxaqFFI2KAIWBOXDSSwWKRVTQ5FwAGRciRcgVQfIAggAhGJ5TSoVLpGC4MwWJYAXyAA&preferredLanguage=English&selectedDevice=default&selectedModel=gpt-3.5-turbo-16k&useSearchParam=false&useMultiOnParam=false&useEchoCancellationParam=false'
+    );
   };
 
   const handleCreateCharacter = () => {
